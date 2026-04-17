@@ -1,0 +1,39 @@
+# --- Maven Wrapper ---
+/mvnw text eol=lf
+*.cmd text eol=crlf
+
+# --- General text normalization ---
+* text=auto
+
+# --- Java backend ---
+*.java text eol=lf
+*.properties text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.xml text eol=lf
+
+# --- Frontend (React / JS ecosystem) ---
+*.js text eol=lf
+*.jsx text eol=lf
+*.ts text eol=lf
+*.tsx text eol=lf
+*.json text eol=lf
+*.css text eol=lf
+*.scss text eol=lf
+*.html text eol=lf
+
+# --- Shell scripts ---
+*.sh text eol=lf
+
+# --- Windows scripts ---
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# --- Binary files (never touched) ---
+*.jar binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.pdf binary
