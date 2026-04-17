@@ -1,0 +1,167 @@
+/* General Table Styling */
+.item-table {
+    width: 100%;
+    max-width: 900px;
+    margin: 20px auto;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+}
+
+.item-table table {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.item-table th, .item-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+    font-size: 14px; /* Slightly smaller font for compact look */
+}
+
+.item-table th {
+    background-color: #4CAF50;
+    color: white;
+    font-weight: bold;
+}
+
+/* Style for table rows */
+.item-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9; /* Lighter shade for better readability */
+}
+
+.item-table tbody tr:hover {
+    background-color: #e0e0e0; /* More visible hover effect */
+}
+
+/* ✅ Buttons: Small, Rounded & Colorful */
+button {
+    padding: 5px 10px;
+    font-size: 12px;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+/* Logout Button - Black */
+.logout-btn {
+    background-color: black;
+    color: white;
+    align-self:flex-end;
+    font-size: 15px;
+    padding: 15px;
+    width: auto;
+}
+
+.logout-btn:hover {
+    background-color: #333;
+}
+
+/* Add Item Button - Green */
+.add-item-btn {
+    background-color: #28a745;
+    color: white;
+}
+
+.add-item-btn:hover {
+    background-color: #1e7e34;
+}
+
+/* Delete Button - Red */
+.delete-btn {
+    background-color: #FF3B30;
+    color: white;
+    padding: 4px 8px;
+}
+
+.delete-btn:hover {
+    background-color: darkred;
+}
+
+/* Bulk Delete Button */
+.bulk-delete-btn {
+    background-color: red;
+    color: white;
+    padding: 6px 12px;
+    margin-bottom: 10px;
+}
+
+.bulk-delete-btn:hover {
+    background-color: darkred;
+}
+
+/* 🔄 Better Input & Form Styling */
+.item-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.item-form form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.item-form input, .item-form select {
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.item-form label {
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.item-form div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* ✅ Checkbox Styling */
+input[type="checkbox"] {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+/* 📊 Table Styling */
+.table-container {
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+}
+
+.transaction-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.transaction-table th,
+.transaction-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    font-size: 13px;
+}
+
+/* Adjust Header */
+.transaction-table th {
+    background-color: #f4f4f4;
+    font-size: 14px;
+}
+
+/* Align checkboxes */
+.checkbox-cell {
+    text-align: center;
+    width: 50px;
+}

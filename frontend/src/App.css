@@ -1,0 +1,97 @@
+/* Global styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f9;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* App layout styling */
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 100px; /* Adjust size of the logo */
+  pointer-events: none;
+  margin-bottom: 1rem;
+}
+
+.App-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f4f4f9; /* Light background color for the whole page */
+}
+
+/* Main container to divide into left and right halves */
+
+
+
+
+nav {
+  background-color: #333; /* Dark background for the navigation */
+  padding: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+}
+
+nav li {
+  margin: 0 15px;
+}
+
+nav a {
+  color: white;
+  font-size: 1.2rem;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+  background-color: #4CAF50; /* Green hover effect for the links */
+}
+
+/* Responsive Design for smaller screens */
+@media (max-width: 768px) {
+  .main-container {
+    flex-direction: column;
+  }
+
+  .left-section, .right-section {
+    flex: none; /* Remove the 50% width */
+    width: 100%; /* Set width to 100% for each section */
+    padding: 1rem;
+  }
+
+  .greeting-text h2 {
+    font-size: 1.8rem;
+  }
+
+  .greeting-text p {
+    font-size: 0.9rem;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav li {
+    margin: 10px 0;
+  }
+}
