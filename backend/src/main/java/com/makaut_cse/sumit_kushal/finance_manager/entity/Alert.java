@@ -1,5 +1,6 @@
 package com.makaut_cse.sumit_kushal.finance_manager.entity;
 
+import com.makaut_cse.sumit_kushal.finance_manager.enums.*;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -20,15 +21,18 @@ public class Alert {
 
     private Long referenceId;
 
-    private String referenceType;
+    @Enumerated(EnumType.STRING)
+    private ReferenceType referenceType;
 
-    private String alertType;
+    @Enumerated(EnumType.STRING)
+    private AlertType alertType;
 
     private String message;
 
     private LocalDate alertDate;
 
-    private String status;
+    @Enumerated(EnumType.STRING)
+    private AlertStatus status;
 
     private LocalDateTime createdAt;
 

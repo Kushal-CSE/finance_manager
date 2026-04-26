@@ -1,5 +1,6 @@
 package com.makaut_cse.sumit_kushal.finance_manager.entity;
 
+import com.makaut_cse.sumit_kushal.finance_manager.enums.CategoryType;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -20,7 +21,8 @@ public class Category {
 
     private String name;
 
-    private String type;
+    @Enumerated(EnumType.STRING)
+    private CategoryType type;
 
     private Boolean isDefault;
 

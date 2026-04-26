@@ -1,5 +1,6 @@
 package com.makaut_cse.sumit_kushal.finance_manager.entity;
 
+import com.makaut_cse.sumit_kushal.finance_manager.enums.TransactionType;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -20,7 +21,8 @@ public class Transaction {
 
     private Double amount;
 
-    private String transactionType;
+    @Enumerated(EnumType.STRING)
+    private TransactionType transactionType;
 
     private String description;
 

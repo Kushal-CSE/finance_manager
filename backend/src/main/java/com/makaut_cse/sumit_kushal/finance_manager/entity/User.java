@@ -1,5 +1,6 @@
 package com.makaut_cse.sumit_kushal.finance_manager.entity;
 
+import com.makaut_cse.sumit_kushal.finance_manager.enums.*;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -19,6 +20,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(length = 100)
     private String name;
 
     @Column(nullable = false, unique = true)
@@ -27,15 +29,20 @@ public class User {
     @Column(name = "password_hash")
     private String passwordHash;
 
+    @Builder.Default
     @Column(name = "auth_provider", nullable = false)
-    private String authProvider = "LOCAL";
+    @Enumerated(EnumType.STRING)
+    private AuthProvider authProvider = AuthProvider.LOCAL;
 
     @Column(name = "provider_id")
     private String providerId;
 
+    @Builder.Default
     @Column(nullable = false)
-    private String role = "USER";
+    @Enumerated(EnumType.STRING)
+    private Role role = Role.USER;
 
+    @Builder.Default
     @Column(name = "is_active", nullable = false)
     private Boolean isActive = true;
 
@@ -56,4 +63,15 @@ public class User {
 
     @OneToMany(mappedBy = "user")
     private List<Alert> alerts;
+
+    @PrePersist
+    protected void onCreate() {
+        createdAt = LocalDateTime.now();
+        updatedAt = LocalDateTime.now();
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        updatedAt = LocalDateTime.now();
+    }
 }
