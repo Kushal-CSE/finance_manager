@@ -1,6 +1,7 @@
 # ===== IDE =====
 .idea/
 .vscode/
+.mvn
 
 # ===== ENV =====
 .env
@@ -28,3 +29,4 @@ replay_pid*
 coverage/
 build/
 backend/HELP.md
+u
