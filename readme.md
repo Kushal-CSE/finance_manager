@@ -1,14 +1,14 @@
 # Finstable
 
-**Finstable** is a personal finance management platform built to help users track spending, manage multiple financial accounts, and stay organized with recurring financial obligations.
+**Finstable** is a personal finance management platform built to give users clear visibility over how their money moves.
 
-Many expense trackers stop at basic transaction logging and simple analytics. Finstable goes beyond that by helping users manage different sources of money, monitor recurring expenses, track debt-related payments, and maintain better financial discipline from one centralized platform.
+It brings savings, categorized expenses (food, rent, EMIs, etc.), and recurring financial commitments (EMIs, credit card payments, subscriptions) into one place, making it easier to stay organized and in control.
 
 This platform is built for:
 
 - Students managing limited monthly budgets
 - Young professionals tracking salary and expenses
-- Individuals managing multiple bank accounts or credit cards
+- Individuals managing multiple credit cards
 - Users handling recurring expenses such as rent, subscriptions, and EMIs
 - Anyone who wants better visibility into their financial habits
 
@@ -77,11 +77,7 @@ Users can also:
 
 ---
 
-## Goal
-
-Finstable aims to help users better understand their financial behavior, manage recurring obligations, track multiple financial accounts, and make smarter financial decisions from one platform.
-
-
+# ER Diagram
 
 ```mermaid
 erDiagram
@@ -160,3 +156,254 @@ erDiagram
 
     CATEGORIES ||--o{ TRANSACTIONS : classifies
 ```
+
+
+# DB Design 
+
+## USERS
+
+### Columns
+- id
+- name
+- email
+- password_hash
+- role
+- auth_provider
+- provider_id
+- is_active
+- created_at
+- updated_at
+
+### Purpose
+Handles authentication and ownership of financial data.
+
+---
+
+## CATEGORIES
+
+### Columns
+- id
+- user_id
+- name
+- type
+- is_default
+- created_at
+- updated_at
+
+### Purpose
+Organizes transactions into meaningful spending/income groups.
+
+---
+
+## ACCOUNTS
+
+### Columns
+- id
+- user_id
+- account_name
+- account_type
+- current_balance
+- credit_limit
+- interest_rate
+- payment_due_day
+- remaining_balance
+- end_date
+- is_active
+- created_at
+- updated_at
+
+### Purpose
+Represents multiple financial sources where money is stored or spent.
+
+---
+
+## TRANSACTIONS
+
+### Columns
+- id
+- user_id
+- account_id
+- category_id
+- amount
+- transaction_type
+- description
+- transaction_date
+- created_at
+- updated_at
+
+### Purpose
+Acts as the financial ledger of the system.
+
+---
+
+## ALERTS
+
+### Columns
+- id
+- user_id
+- account_id
+- reference_id
+- reference_type
+- alert_type
+- message
+- alert_date
+- status
+- created_at
+
+### Purpose
+Handles reminders and financial notifications.
+
+---
+
+# API Endpoints
+
+
+[//]: # (## GET Endpoints)
+
+[//]: # (- `GET /accounts`)
+
+[//]: # (- `GET /transactions`)
+
+[//]: # (- `GET /transactions/filter`)
+
+[//]: # (- `GET /categories`)
+
+[//]: # (- `GET /alerts`)
+
+
+[//]: # (---)
+
+[//]: # ()
+## POST Endpoints
+- `POST /auth/signup`
+- `POST /auth/login`
+
+[//]: # (- `POST /accounts`)
+
+[//]: # (- `POST /transactions`)
+
+[//]: # (- `POST /categories`)
+
+---
+
+
+[//]: # (## PUT Endpoints)
+
+[//]: # (- `PUT /accounts/{id}`)
+
+[//]: # (- `PUT /transactions/{id}`)
+
+[//]: # (- `PUT /categories/{id}`)
+
+
+[//]: # (---)
+
+
+[//]: # (## DELETE Endpoints)
+
+[//]: # (- `DELETE /accounts/{id}`)
+
+[//]: # (- `DELETE /transactions/{id}`)
+
+[//]: # (- `DELETE /categories/{id}`)
+
+
+[//]: # (---)
+
+[//]: # (# How To Use)
+
+
+[//]: # (## Live Product)
+
+[//]: # (Backend Deployment Link: **Coming Soon**)
+
+[//]: # ()
+[//]: # (Frontend Link: **Coming Soon**)
+
+
+[//]: # (---)
+
+
+[//]: # (## Documentation)
+
+[//]: # (Detailed usage guide:)
+
+
+[//]: # (Read the [Usage Guide]&#40;./readHowToUseMe.md&#41;)
+
+
+[//]: # (---)
+
+
+# Tech Stack
+
+## Backend
+- Java
+- Spring Boot
+- Spring Security
+- JWT
+
+[//]: # (- OAuth2)
+
+---
+
+## Database
+- PostgreSQL
+- Flyway
+
+---
+
+
+[//]: # (## Testing)
+
+[//]: # (- JUnit *&#40;planned&#41;*)
+
+[//]: # (- Mockito *&#40;planned&#41;*)
+
+[//]: # ()
+---
+
+## Tools & DevOps
+- Git
+- GitHub
+- Postman
+
+[//]: # (- Docker *&#40;planned&#41;*)
+
+---
+
+## Goal
+
+Finstable aims to help users better understand their financial behavior, manage recurring obligations, track multiple financial accounts, and make smarter financial decisions from one platform.
+
+---
+
+# Contributors
+
+## Developers
+
+### Kushal Karmakar
+Backend Developer
+
+- GitHub: [Kushal-CSE](https://github.com/Kushal-CSE)
+- LinkedIn: [Kushal LinkedIn](https://www.linkedin.com/in/kushal-cse/)
+- Email: [kushalkarmakar1@gmail.com](mailto:kushalkarmakar1@gmail.com)
+
+---
+
+### Sumit
+Backend Developer
+
+- GitHub: [sumitpd8](https://github.com/sumitpd8)
+- LinkedIn: [Sumit LinkedIn](https://www.linkedin.com/in/sumit-prasad-228343201/)
+- Email: [sumitprasad423@gmail.com](mailto:sumitprasad423@gmail.com)
+
+---
+
+## Have Any Great Ideas?
+
+Want to improve the project?
+
+Read:
+
+Read the [Contribution Guide](./readHowToContribute.md)
