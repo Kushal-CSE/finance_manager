@@ -80,3 +80,83 @@ Users can also:
 ## Goal
 
 Finstable aims to help users better understand their financial behavior, manage recurring obligations, track multiple financial accounts, and make smarter financial decisions from one platform.
+
+
+
+```mermaid
+erDiagram
+    USERS {
+        bigint id PK
+        string name
+        string email UK
+        string password_hash
+        string role
+        string auth_provider
+        string provider_id
+        boolean is_active
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    CATEGORIES {
+        bigint id PK
+        bigint user_id FK
+        string name
+        string type
+        boolean is_default
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    ACCOUNTS {
+        bigint id PK
+        bigint user_id FK
+        string account_name
+        string account_type
+        decimal current_balance
+        decimal credit_limit
+        decimal interest_rate
+        int payment_due_day
+        decimal remaining_balance
+        date end_date
+        boolean is_active
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    TRANSACTIONS {
+        bigint id PK
+        bigint user_id FK
+        bigint account_id FK
+        bigint category_id FK
+        decimal amount
+        string transaction_type
+        string description
+        date transaction_date
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    ALERTS {
+        bigint id PK
+        bigint user_id FK
+        bigint account_id FK
+        bigint reference_id
+        string reference_type
+        string alert_type
+        string message
+        date alert_date
+        string status
+        timestamp created_at
+    }
+
+    USERS ||--o{ CATEGORIES : creates
+    USERS ||--o{ ACCOUNTS : owns
+    USERS ||--o{ TRANSACTIONS : performs
+    USERS ||--o{ ALERTS : receives
+
+    ACCOUNTS ||--o{ TRANSACTIONS : records
+    ACCOUNTS ||--o{ ALERTS : triggers
+
+    CATEGORIES ||--o{ TRANSACTIONS : classifies
+```
